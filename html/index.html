@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content ="width-device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../css/style.css" />
+        <title>Goblin Seek</title>
+
+    </head>
+
+    <body>
+        <img src = "../image/backgroundover.png" class="backgroundOver">
+
+
+        <div class ="contentLogo">
+            <img src="../image/logoGoblinSeek.png" class="logoGoblin">
+        </div>
+
+
+        <div class = "game" id="game">
+            <div class = "score" id = "scoreTxt">Score : 10</div>
+            <div class = "difficulty" id = "difficultyTxt">Normal</div>
+            <div id="table"></div>
+        </div>
+
+        <div class ="mainMenu" id="mainMenu">
+            <img src ="../image/borderbutton.png" id ="buttonStartGame">
+            <img src ="../image/scorebutton.png" id ="buttonScoreMenu">
+            <div class ="addScore" id ="diffuse">
+                <h1 id="textName">YOUR NAME :</h1>
+                <input id="playerName" type="username" name="username" placeholder="Your Name" value="Player1" required></input>
+            </div>
+        </div>
+
+        <div class ="finishGame" id="finishMenu">
+            <div class ="scoreTable">
+                <h1>Score Table</h1>
+                <div id="scoreContent">
+
+                </div>
+            </div>
+            <div class ="menu">
+                <h1 id="winOrLoose">EHEH</h1>
+                <div class="container">
+                    <div class ="difficultyContainer">
+                        <h1 class="textDiff">Difficulty :</h1>
+                        <form name="formulaire" id="Form"> 
+
+                            <select class = "select1" id="selectDiff" name="difficul">
+                                <option value="1" selected>Normal</option>
+                                <option value="2" >Hard</option>
+                                <option value="3" >IMPOSSIBLE</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <img src="../image/restartbutton.png" class ="restart" id="buttonRestart">
+                <img src="../image/mainmenuButton.png" class ="mainmenuButton" id="buttonMainMenu">
+            </div>
+        </div>
+        
+        <script src=".././renderer.js"></script>
+        <script type="text/javascript" src="../script/script.js"></script>
+
+    </body>
+
+</html>
