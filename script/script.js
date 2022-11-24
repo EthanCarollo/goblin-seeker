@@ -20,6 +20,9 @@ let scoreContent = document.getElementById("scoreContent");
 let startButton = document.getElementById("buttonStartGame");
 let nameOfPlayer = document.getElementById("playerName");
 let mainmenuButton = document.getElementById("buttonMainMenu");
+let localStorageLength = 0;
+
+
 
 const revealCard= (cardId) => {
     if(tabOfCard[cardId].revealed===false && cardHasBeenFind === false && numberOfClics < maxOfClics){
@@ -241,9 +244,32 @@ const addScoreOnTable = () => {
         difficulty: difficultyTxt
     }
     scoreTable.push(score);
+    addScoreInLocalStorage(score);
     sortScoreTable();
     displayScoreTable();
 
+}
+
+if(localStorage.getItem("scoreLength")>0){
+    localStorageLength = localStorage.getItem("scoreLength");
+    for(let i = 0; i<localStorageLength;i++){
+        let score = {
+            name: localStorage.getItem("tableScoreName"+i),
+            actualClick: localStorage.getItem("tableScoreActualClick"+i),
+            maxClics: localStorage.getItem("tableScoreMaxClick"+i),
+            difficulty: localStorage.getItem("tableScoreDifficulty"+i)
+        }
+        scoreTable.push(score);
+    }
+}
+
+const addScoreInLocalStorage = (score) => {
+    localStorage.setItem("tableScoreName"+localStorageLength, score.name);
+    localStorage.setItem("tableScoreActualClick"+localStorageLength, score.actualClick);
+    localStorage.setItem("tableScoreMaxClick"+localStorageLength, score.maxClics);
+    localStorage.setItem("tableScoreDifficulty"+localStorageLength, score.difficulty);
+    localStorageLength++;
+    localStorage.setItem("scoreLength", localStorageLength)
 }
 
 const displayScoreTable = () => {
