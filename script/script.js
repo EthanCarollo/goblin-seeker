@@ -4,6 +4,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+//#region //* Var
+
 let tabOfCard = [];
 let tabOfCardLength = 64;
 let cardHasBeenFind = false;
@@ -21,8 +23,11 @@ let startButton = document.getElementById("buttonStartGame");
 let nameOfPlayer = document.getElementById("playerName");
 let mainmenuButton = document.getElementById("buttonMainMenu");
 let localStorageLength = 0;
+let switchScore = false;
 
+//#endregion //* Var
 
+//#region //TODO Game
 
 const revealCard= (cardId) => {
     if(tabOfCard[cardId].revealed===false && cardHasBeenFind === false && numberOfClics < maxOfClics){
@@ -139,8 +144,6 @@ const startGame=()=>{
     createTable();
 }
 
-let switchScore = false;
-
 const finishGame=()=>{
     document.getElementById("winOrLoose").innerHTML = "t'as gagné, va te laver maintenant";
     CallBackToggleRestartScreen();
@@ -158,6 +161,13 @@ const looseGame=()=>{
     document.getElementById("winOrLoose").innerHTML = "t'as perdu, gros puant va";
 }
 
+const goToMainMenu = () => {
+    deleteTable();
+    document.getElementById("mainMenu").classList.toggle('desactive');
+    document.getElementById("game").classList.toggle('active');
+    finishGameMenu.classList.toggle('isOpen');
+}
+
 const CallBackToggleRestartScreen = (delay=2000) => {
     setTimeout(() => {
         finishGameMenu.classList.toggle('isOpen');
@@ -165,7 +175,10 @@ const CallBackToggleRestartScreen = (delay=2000) => {
 
 }
 
-// ! #region Difficulty
+
+//#endregion //TODO GAME
+
+//#region //! Difficulty
 
 const setDifficulty = () => {
     if(difficulty==="1"){
@@ -225,7 +238,9 @@ form.addEventListener('change', function() {
 });
 // * Changing difficulty
 
-// ! #endregion Difficulty
+//#endregion //! Difficulty
+
+//#region //? Score Table
 
 const addScoreOnTable = () => {
     console.log(nameOfPlayer.value);
@@ -295,12 +310,7 @@ const sortScoreTable = () => {
 );
 }
 
-const goToMainMenu = () => {
-    deleteTable();
-    document.getElementById("mainMenu").classList.toggle('desactive');
-    document.getElementById("game").classList.toggle('active');
-    finishGameMenu.classList.toggle('isOpen');
-}
+//#endregion //? Score Table
 
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", restartGame);
