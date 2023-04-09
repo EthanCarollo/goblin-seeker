@@ -219,7 +219,7 @@ const impossibleDifficulty = () => {
     numberOfClics = 0;
     maxOfClics = 20;
     impossibleDifficultyCallBackBoucle(setIntru);
-    tabOfCardLength = 70;
+    tabOfCardLength = 280;
 }
 
 const impossibleDifficultyCallBackBoucle = (callback, delay=1000) => {
